@@ -1,0 +1,91 @@
+---
+title: 'Next.js ve MDX ile Blog Oluşturma'
+date: '15 Ocak 2024'
+category: 'Next.js'
+excerpt: 'Next.js ve MDX kullanarak kendi blogunuzu nasıl oluşturabilirsiniz?'
+readTime: '10 dk'
+---
+
+# Next.js ve MDX ile Blog Oluşturma
+
+Next.js, React tabanlı web uygulamaları geliştirmek için kullanılan güçlü bir framework'tür. MDX ise Markdown içinde JSX kullanmanıza olanak tanıyan bir formattır. Bu ikisini birleştirerek, dinamik ve zengin içerikli bir blog oluşturabilirsiniz.
+
+## Next.js'in Avantajları
+
+Next.js, şu özellikleri sunar:
+
+- **Server-Side Rendering (SSR)**: SEO dostu sayfalar
+- **Static Site Generation (SSG)**: Hızlı yükleme süreleri
+- **File-based Routing**: Kolay ve anlaşılır routing
+- **API Routes**: Backend işlevselliği
+- **Image Optimization**: Otomatik resim optimizasyonu
+
+## MDX ile İçerik Yönetimi
+
+MDX, Markdown'ın tüm özelliklerini sunarken, aynı zamanda React bileşenlerini içeriğinize entegre etmenizi sağlar.
+
+### Basit bir MDX dosyası:
+
+```mdx
+# Merhaba Dünya
+
+Bu bir **MDX** örneğidir.
+
+<Button onClick={() => alert('Merhaba!')}>Tıkla</Button>
+
+![Resim açıklaması](/images/example.jpg)
+```
+
+## Blog Yapısının Oluşturulması
+
+Next.js ve MDX ile blog oluşturmak için takip edebileceğiniz adımlar:
+
+1. **Next.js Kurulumu**:
+   ```bash
+   npx create-next-app@latest blog-app
+   cd blog-app
+   ```
+
+2. **MDX Eklentilerinin Kurulumu**:
+   ```bash
+   npm install @next/mdx @mdx-js/loader @mdx-js/react
+   ```
+
+3. **next.config.js Yapılandırması**:
+   ```js
+   const withMDX = require('@next/mdx')({
+     extension: /\.mdx?$/,
+     options: {
+       remarkPlugins: [],
+       rehypePlugins: [],
+     },
+   });
+
+   module.exports = withMDX({
+     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+   });
+   ```
+
+4. **Styling için Tailwind CSS Eklenmesi**:
+   ```bash
+   npm install tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
+   ```
+
+5. **İçerik Dizini Oluşturma**:
+   - `/content` dizininde blog yazılarınızı saklayabilirsiniz
+   - Her yazı için frontmatter kullanarak meta verileri tanımlayabilirsiniz
+
+## SEO Optimizasyonu
+
+Next.js, SEO için pek çok araç sunar:
+
+- **Metadata API**: Sayfa başlıkları, açıklamalar ve Open Graph bilgileri
+- **Structured Data**: JSON-LD formatında yapılandırılmış veriler
+- **Sitemap.xml**: Otomatik site haritası oluşturma
+
+## Sonuç
+
+Next.js ve MDX, blog oluşturma sürecinizi verimli ve keyifli hale getirir. Markdown'ın basitliği ile React'in gücünü birleştirerek, yazarlar için kolay, okuyucular için zengin bir deneyim sunabilirsiniz.
+
+Next.js ve MDX kombinasyonu, kişisel bloglardan kurumsal bloglara, dokümantasyon sitelerinden portföy sitelerine kadar çeşitli projeler için mükemmel bir çözümdür. 

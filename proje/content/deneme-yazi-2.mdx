@@ -1,0 +1,80 @@
+---
+title: 'React ile Uygulama Geliştirme'
+date: '22 Ağustos 2023'
+category: 'React'
+excerpt: 'React kullanarak modern ve performanslı web uygulamaları nasıl oluşturulur?'
+readTime: '7 dk'
+---
+
+# React ile Uygulama Geliştirme
+
+React, kullanıcı arayüzleri oluşturmak için kullanılan popüler bir JavaScript kütüphanesidir. Bu yazıda, React'in temel kavramlarını ve modern React uygulamaları geliştirmenin inceliklerini ele alacağız.
+
+## React'in Temel Prensipleri
+
+React, bileşen tabanlı bir yapı sunar. Her bileşen, kendi state'ini yönetebilir ve props aracılığıyla veri alabilir. React'in temel prensibi, UI'ı bildirimsel (declarative) bir şekilde tanımlamaktır.
+
+### JSX: JavaScript + XML
+
+React, JSX sözdizimini kullanır. JSX, JavaScript içinde HTML benzeri yapılar yazmanızı sağlar:
+
+```jsx
+function Welcome() {
+  return <h1>Merhaba, React!</h1>;
+}
+```
+
+### Hooks: Fonksiyonel Bileşenlerde State ve Yan Etkiler
+
+React Hooks, fonksiyonel bileşenlerde state ve yaşam döngüsü özelliklerini kullanmanızı sağlar:
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `${count} kere tıklandı`;
+  }, [count]);
+
+  return (
+    <div>
+      <p>Bu butona {count} kere tıkladınız</p>
+      <button onClick={() => setCount(count + 1)}>
+        Tıkla
+      </button>
+    </div>
+  );
+}
+```
+
+## Modern React Uygulamaları
+
+Modern React uygulamaları genellikle şunları içerir:
+
+1. **State Management**: Redux, Context API veya Zustand gibi
+2. **Routing**: React Router
+3. **API Calls**: Fetch, Axios veya React Query
+4. **Styling**: CSS Modules, Styled Components veya Tailwind CSS
+
+## React Ecosystem
+
+React çevresinde geniş bir ekosistem bulunur:
+
+- **Next.js**: SSR, SSG ve daha fazlası için
+- **Create React App**: Hızlı başlangıç için
+- **React Native**: Mobil uygulamalar için
+- **Vite**: Hızlı dev server ve build tool
+
+## Best Practices
+
+React uygulamalarınızı geliştirirken:
+
+- Bileşenlerinizi küçük ve odaklı tutun
+- İmmutable veri yapılarını tercih edin
+- Performance optimizasyonları için memo, useMemo ve useCallback kullanın
+- Erişilebilirliği (a11y) göz ardı etmeyin
+- Test yazın: Jest, React Testing Library
+
+React, web geliştirme dünyasında devrim yaratan bir kütüphanedir. Sürekli gelişen yapısı ve güçlü topluluğu sayesinde, modern web uygulamaları geliştirmek için mükemmel bir seçimdir. 
